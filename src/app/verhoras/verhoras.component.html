@@ -1,0 +1,63 @@
+<!-- <br>
+<h2>Ver Horas</h2>
+<br>    
+<form (ngSubmit)="onSubmit()" [formGroup]="myForm">
+        <div class="form-group">
+            <label for="tecnico">Técnico (*)</label>
+            <input type="text" class="form-control" id="tecnico" name="tecnico" formControlName="tecnico" >
+        </div>
+
+        <div class="form-group">
+            <label for="semanaDelAno">Semana del año (*)</label>
+            <input type="number" class="form-control" id="semanaDelAno" formControlName="semanaDelAno" >
+        </div>        
+        
+        <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Enviar</button>
+</form>
+<hr>
+* requerido
+
+<br><br>   
+<div *ngIf="items">
+    <h1>Resumen de la semana</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Técnico</th>
+                <th scope="col">Semana del Año</th>                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of items | slice:0:1">
+                <th scope="row">{{ item.tecnico}}</th>
+                <td scope="row">{{ item.semanaDelAno }}</td>                
+            </tr>
+        </tbody>
+    </table>
+    <br><br>   
+
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Servicio realizado</th>
+                <th scope="col">Fecha</th>                
+                <th scope="col">Cantidad de horas</th>
+                <th scope="col">Tipo de hora</th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of items">                                
+                <td scope="row">{{ item.servicioRealizado }}</td>
+                <th scope="row">{{ item.fechaDeInicio}}</th>
+                <td scope="row">{{ item.cantidadDeHoras }}</td>
+                <td scope="row">{{ item.tipoDeHora }}</td>                
+                <td scope="row"></td><button type="submit" class="btn btn-success" >Editar</button>
+                <td scope="row"></td><button type="submit" class="btn btn-danger" >Borrar</button>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+ -->

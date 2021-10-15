@@ -1,0 +1,143 @@
+<br>
+<h2>Registrar Colaborador</h2>
+<br>
+<form class="theForm" (ngSubmit)="onSubmit()" [formGroup]="myForm">
+    <div class="form-group">
+        <label for="numeroDeIndentificacion">NumeroDeIndentificacion (*)</label>
+        <input type="number" class="form-control" id="numeroDeIndentificacion" name="numeroDeIndentificacion" formControlName="numeroDeIndentificacion" >
+        <div class="alert-danger" *ngIf="myForm.get('numeroDeIndentificacion').invalid && (myForm.get('numeroDeIndentificacion').dirty || myForm.get('numeroDeIndentificacion').touched)">    
+             
+            <div *ngIf="myForm.get('numeroDeIndentificacion').errors.required">
+                El numeroDeIndentificacion es requerido
+              </div>
+              <div *ngIf="myForm.get('numeroDeIndentificacion').errors.minlength">
+                El numeroDeIndentificacion debe ser mínimo de 3 caracteres
+              </div>
+              <div *ngIf="myForm.get('numeroDeIndentificacion').errors.maxlength">
+                El numeroDeIndentificacion debe ser máximo de 30 caracteres
+              </div>
+        </div>
+
+        <label for="nombres">Nombres (*)</label>
+        <input type="text" class="form-control" id="nombres" name="nombres" formControlName="nombres" >
+        <div class="alert-danger" *ngIf="myForm.get('nombres').invalid && (myForm.get('nombres').dirty || myForm.get('nombres').touched)">    
+             
+            <div *ngIf="myForm.get('nombres').errors.required">
+                El nombre es requerido
+              </div>
+              <div *ngIf="myForm.get('nombres').errors.minlength">
+                El nombre debe ser mínimo de 4 caracteres
+              </div>
+              <div *ngIf="myForm.get('nombres').errors.maxlength">
+                El nombres debe ser máximo de 30 caracteres
+              </div>
+        </div>
+
+        <label for="apellidos">Apellidos (*)</label>
+        <input type="text" class="form-control" id="apellidos" name="apellidos" formControlName="apellidos" >
+        <div class="alert-danger" *ngIf="myForm.get('apellidos').invalid && (myForm.get('apellidos').dirty || myForm.get('apellidos').touched)">    
+             
+            <div *ngIf="myForm.get('apellidos').errors.required">
+                El nombre es requerido
+              </div>
+              <div *ngIf="myForm.get('apellidos').errors.minlength">
+                El nombre debe ser mínimo de 4 caracteres
+              </div>
+              <div *ngIf="myForm.get('apellidos').errors.maxlength">
+                El apellidos debe ser máximo de 30 caracteres
+              </div>
+        </div>
+
+        <label for="direccion">Dirección *</label>
+        <input type="text" class="form-control" id="direccion" name="direccion" formControlName="direccion" >
+        <div class="alert-danger" *ngIf="myForm.get('direccion').invalid && (myForm.get('direccion').dirty || myForm.get('direccion').touched)">    
+             
+            <div *ngIf="myForm.get('direccion').errors.required">
+                El dirección es requerido
+              </div>
+              <div *ngIf="myForm.get('direccion').errors.minlength">
+                El dirección debe ser mínimo de 6 caracteres
+              </div>
+              <div *ngIf="myForm.get('direccion').errors.maxlength">
+                El dirección debe ser máximo de 30 caracteres
+              </div>
+        </div>
+
+        <label for="email">Email </label>
+        <input type="text" class="form-control" id="email" name="email" formControlName="email" >
+        <div class="alert-danger" *ngIf="myForm.get('email').invalid && (myForm.get('email').dirty || myForm.get('email').touched)">                 
+            
+              <div *ngIf="myForm.get('email').errors.minlength">
+                El email debe ser mínimo de 4 caracteres
+              </div>
+              <div *ngIf="myForm.get('email').errors.maxlength">
+                El email debe ser máximo de 30 caracteres
+              </div>
+        </div>
+
+        <label for="telefono">Teléfono </label>
+        <input type="text" class="form-control" id="telefono" name="telefono" formControlName="telefono" >
+        <div class="alert-danger" *ngIf="myForm.get('telefono').invalid && (myForm.get('telefono').dirty || myForm.get('telefono').touched)">                 
+            
+              <div *ngIf="myForm.get('telefono').errors.minlength">
+                El teléfono debe ser mínimo de 7 caracteres
+              </div>
+              <div *ngIf="myForm.get('telefono').errors.maxlength">
+                El teléfono debe ser máximo de 15 caracteres
+              </div>
+        </div>
+
+        <label for="salario">Salario *</label>
+        <input type="number" class="form-control" id="salario" name="salario" formControlName="salario" >
+        <div class="alert-danger" *ngIf="myForm.get('salario').invalid && (myForm.get('salario').dirty || myForm.get('salario').touched)">    
+             
+            <div *ngIf="myForm.get('salario').errors.required">
+                El salario es requerido
+              </div>
+              <div *ngIf="myForm.get('salario').errors.minlength">
+                El salario debe ser mínimo de 2 caracteres
+              </div>
+              <div *ngIf="myForm.get('salario').errors.maxlength">
+                El salario debe ser máximo de 5 caracteres
+              </div>
+        </div>                
+               
+       <div class="container">
+        <select formControlName="area">
+           <option>Seleccione el area</option>
+           <option *ngFor="let area of areas" value="area.id">{{area.nombre}}</option>
+        </select>
+     </div>          
+
+        <label for="fechaDeIngreso">Fecha de Ingreso </label>
+        <input type="date" class="form-control" id="fechaDeIngreso" name="fechaDeIngreso" formControlName="fechaDeIngreso" >
+        <div class="alert-danger" *ngIf="myForm.get('fechaDeIngreso').invalid && (myForm.get('fechaDeIngreso').dirty || myForm.get('fechaDeIngreso').touched)">    
+             
+            <div *ngIf="myForm.get('fechaDeIngreso').errors.required">
+                La fecha de ingreso es requerida
+              </div>              
+        </div>       
+
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="exampleRadios1" value="option1" [checked]="true" formControlName="sexo">
+          <label class="form-check-label" for="exampleRadios1">
+            Masculino
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="exampleRadios2" value="option2" formControlName="sexo">
+          <label class="form-check-label" for="exampleRadios2">
+            Femenino
+          </label>
+        </div>        
+
+        <label for="codigoInterno">Código Interno </label>      
+        <p>{{elCodigoInterno}} </p>
+
+    </div> 
+    <br>
+    <button type="submit" class="btn btn-primary btn-send" [disabled]="myForm.invalid">Enviar</button>
+</form>
+<hr>
+* requerido
+<br><br>

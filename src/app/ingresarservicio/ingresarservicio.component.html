@@ -1,0 +1,99 @@
+<br>
+<h2>Ingresar Servicio</h2>
+<br>
+<form (ngSubmit)="onSubmit()" [formGroup]="myForm">
+    <div class="form-group">
+        <label for="tecnico">Tecnico (*)</label>
+        <input type="text" class="form-control" id="tecnico" name="tecnico" formControlName="tecnico" >
+        <div class="alert-danger" *ngIf="tecnico.invalid && (tecnico.dirty || tecnico.touched)">    
+             
+            <div *ngIf="tecnico.errors.required">
+                El técnico es requerido
+              </div>
+              <div *ngIf="tecnico.errors.minlength">
+                El técnico debe ser mínimo de 4 caracteres
+              </div>
+              <div *ngIf="tecnico.errors.maxlength">
+                El técnico debe ser máximo de 30 caracteres
+              </div>
+        </div>
+    </div> 
+
+    <div class="form-group">
+            <label for="servicioRealizado">Servicio (*)</label>
+            <input type="text" class="form-control" id="servicioRealizado" formControlName="servicioRealizado">
+            
+                
+    </div>        
+
+        <div class="form-group">
+            <label >Fecha de inicio (*)</label>
+            <div class="input-group">
+                <input class="form-control"  formControlName="fechaDeInicio" type="date">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="horaDeInicio">Hora de inicio (*)</label>
+            <input type="number" class="form-control" id="horaDeInicio" formControlName="horaDeInicio">
+        </div>
+
+        <div class="form-group">
+            <label >Fecha de finalización (*)</label>
+            <div class="input-group">
+                <input class="form-control" formControlName="fechaDeFinalizacion" type="date" >
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="horaDeFinalizacion">Hora de finalización (*)</label>
+            <input type="number" class="form-control" id="horaDeFinalizacion" formControlName="horaDeFinalizacion">
+        </div> 
+
+    <br>
+    <button type="submit" class="btn btn-primary btn-send" [disabled]="myForm.invalid">Enviar</button>
+</form>
+<hr>
+* requerido
+<br><br>
+
+<!--
+    <div *ngIf="(tecnico.errors != null) && (tecnico.dirty || tecnico.touched)" class="alert-danger">      
+    [disabled]="myForm.invalid"
+      <div *ngIf="f.tecnico.errors.required">
+      
+  -->
+
+  <!--
+      <div class="form-group">
+        <label for="tecnico">Técnico </label>
+        <input type="text" class="form-control" id="tecnico" name="tecnico" formControlName="tecnico"
+            [ngClass]="{ 'is-invalid': f.tecnico.errors}" required>
+        <ng-container *ngIf="f.tecnico.errors">
+            <span *ngIf="f.tecnico.errors.required">
+                El nombre del técnico es requerido
+            </span>
+            <span *ngIf="f.tecnico.errors.minlength">
+                El nombre del técnico debe ser mínimo de 4 letras
+            </span>
+            <span *ngIf="f.tecnico.errors.maxlength">
+                El nombre del técnico debe ser máximo de 30 letras
+            </span>
+        </ng-container>
+    </div>
+  -->
+
+  <!-- <mat-form-field appearance="outline"> -->
+        <!-- <mat-form-field appearance="fill">
+        <mat-label>Técnico</mat-label>
+        <input type="text" matInput placeholder="Nombre del técnico" formControlName="tecnico">
+        <mat-error *ngIf="f.tecnico.hasError('required')">
+            El nombre del técnico es requerido
+        </mat-error>
+        <mat-error *ngIf="f.tecnico.hasError('minlength')">
+            El nombre del técnico debe ser mínimo de 4 letras
+        </mat-error>
+        <mat-error *ngIf="f.tecnico.hasError('maxlength')">
+            El nombre del técnico debe ser máximo de 30 letras
+        </mat-error>
+      </mat-form-field> -->
