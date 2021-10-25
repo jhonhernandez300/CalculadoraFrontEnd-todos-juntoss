@@ -5,6 +5,7 @@ import { Colaborador } from '../data/colaborador';
 import { FormBuilder, FormGroup, NgForm, Validators, FormControl} from '@angular/forms';
 import { ServicioSettings } from '../data/servicio-settings';
 import { ReactiveFormsModule } from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-consultar-colaborador',
@@ -14,7 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class ConsultarColaboradorComponent implements OnInit {
 
   colaborador: Colaborador = {
-    numeroDeIndentificacion: null,
+    numeroDeIndentificacion: 33,
     nombres: null,
     apellidos: null,
     direccion: null,
@@ -31,7 +32,7 @@ export class ConsultarColaboradorComponent implements OnInit {
   myForm: FormGroup;    
   submitted = false;  
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private http: HttpClient) { }
 
   iniciarFormulario(){
     this.myForm = new FormGroup({        
@@ -52,7 +53,7 @@ export class ConsultarColaboradorComponent implements OnInit {
     }
     
     //console.log(this.myForm.value.numeroDeIndentificacion);
-    this.dataService.ConsultarColaboradorPorIdentificación(this.myForm.value.numeroDeIndentificacion).subscribe(
+    this.dataService.ConsultarColaboradorPorIdentificacion(this.myForm.value.numeroDeIndentificacion).subscribe(
       //result => console.log('success ', result),
       result =>  this.items = result,
       error => console.log('error ', error)
