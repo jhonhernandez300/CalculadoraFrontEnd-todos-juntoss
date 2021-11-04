@@ -1,7 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegistrarColaboradorComponent } from './registrar-colaborador.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { DataService } from '../data/data.service';
 
 describe('RegistrarColaboradorComponent', () => {
   let component: RegistrarColaboradorComponent;
@@ -9,7 +11,9 @@ describe('RegistrarColaboradorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegistrarColaboradorComponent ]
+      declarations: [ RegistrarColaboradorComponent ],
+      imports:[FormsModule, HttpClientModule, ReactiveFormsModule],
+      providers:[DataService]
     })
     .compileComponents();
   });

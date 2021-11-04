@@ -1,4 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DataService } from '../data/data.service';
 
 import { VerhorasComponent } from './verhoras.component';
 
@@ -8,7 +11,9 @@ describe('VerhorasComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ VerhorasComponent ]
+      declarations: [ VerhorasComponent ],
+      imports: [HttpClientModule, FormsModule, ReactiveFormsModule],
+      providers: [DataService]
     })
     .compileComponents();
   }));

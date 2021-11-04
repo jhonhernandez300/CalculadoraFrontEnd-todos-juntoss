@@ -27,7 +27,7 @@ export class ConsultarColaboradorComponent implements OnInit {
     codigoInterno: null
   };
 
-  items: Colaborador;
+  items: Colaborador[];
   myForm: FormGroup;    
   submitted = false;  
 
@@ -52,7 +52,7 @@ export class ConsultarColaboradorComponent implements OnInit {
     }
     
     //console.log(this.myForm.value.numeroDeIndentificacion);
-    this.dataService.ConsultarColaboradorPorIdentificación(this.myForm.value.numeroDeIndentificacion).subscribe(
+    this.dataService.consultarColaboradorPorIdentificacion(this.myForm.value.numeroDeIndentificacion).subscribe(
       //result => console.log('success ', result),
       result =>  this.items = result,
       error => console.log('error ', error)

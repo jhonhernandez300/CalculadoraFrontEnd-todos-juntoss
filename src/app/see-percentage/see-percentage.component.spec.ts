@@ -1,4 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DataService } from '../data/data.service';
 
 import { SeePercentageComponent } from './see-percentage.component';
 
@@ -8,7 +11,9 @@ describe('SeePercentageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SeePercentageComponent ]
+      declarations: [ SeePercentageComponent ],
+      imports: [HttpClientModule, HttpClientTestingModule],
+      providers: [DataService]
     })
     .compileComponents();
   });

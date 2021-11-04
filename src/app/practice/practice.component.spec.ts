@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PracticeComponent } from './practice.component';
 
@@ -8,7 +9,8 @@ describe('PracticeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PracticeComponent ]
+      declarations: [ PracticeComponent ],
+      imports: [FormsModule, ReactiveFormsModule]
     })
     .compileComponents();
   });

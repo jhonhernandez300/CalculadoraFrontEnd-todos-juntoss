@@ -1,4 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { DataService } from '../data/data.service';
 
 import { SeeFrequencyComponent } from './see-frequency.component';
 
@@ -8,7 +11,9 @@ describe('SeeFrequencyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SeeFrequencyComponent ]
+      declarations: [ SeeFrequencyComponent ],
+      imports: [HttpClientModule],
+      providers: [DataService]
     })
     .compileComponents();
   });

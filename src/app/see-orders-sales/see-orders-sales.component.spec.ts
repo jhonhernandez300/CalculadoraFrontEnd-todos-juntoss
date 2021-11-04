@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { DataService } from '../data/data.service';
 
 import { SeeOrdersSalesComponent } from './see-orders-sales.component';
 
@@ -8,7 +10,9 @@ describe('SeeOrdersSalesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SeeOrdersSalesComponent ]
+      declarations: [ SeeOrdersSalesComponent ],
+      imports: [HttpClientModule],
+      providers: [DataService],
     })
     .compileComponents();
   });
