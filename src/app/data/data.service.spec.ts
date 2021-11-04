@@ -41,7 +41,7 @@ describe('DataService test', () => {
       colaboradores = response;
       expect(colaboradores[0]).toEqual(mockItems[0]);
     });
-    const request = httpTestingController.expectOne("https://localhost:5001/api/ConsultarColaboradorPorIdentificacion/1");
+    const request = httpTestingController.expectOne("https://localhost:44309/api/ConsultarColaboradorPorIdentificacion/1");
     request.flush(mockItems);
     httpTestingController.verify();
   });
@@ -53,7 +53,7 @@ describe('DataService test', () => {
       expect(e.status == 404 ).toBeTruthy();
     });
    
-    let req = httpTestingController.expectOne("https://localhost:5001/api/ConsultarColaboradorPorIdentificacion/1");
+    let req = httpTestingController.expectOne("https://localhost:44309/api/ConsultarColaboradorPorIdentificacion/1");
     req.flush("Something went wrong", {
       status: 404,
       statusText: "Network error"

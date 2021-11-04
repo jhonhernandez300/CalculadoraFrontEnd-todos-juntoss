@@ -20,7 +20,7 @@ export class DataService {
 
   consultarColaboradorPorIdentificacion(numeroDeIdentificacion: Number): Observable<Colaborador[]> {
     //console.log(numeroDeIdentificacion);
-    return this.http.get<Colaborador[]>('https://localhost:5001/api/ConsultarColaboradorPorIdentificacion'+  "/" + numeroDeIdentificacion);
+    return this.http.get<Colaborador[]>('https://localhost:44309/api/ConsultarColaboradorPorIdentificacion'+  "/" + numeroDeIdentificacion);
   }
 
   getCodigoInterno(): Observable<any> {
