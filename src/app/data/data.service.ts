@@ -5,7 +5,7 @@ import { ServicioSettings } from '../data/servicio-settings';
 import { Colaborador } from '../data/colaborador';
 import { IFrequency } from '../data/ifrequency';
 import { environment } from 'src/environments/environment';
-
+import { map, first } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class DataService {
 
   ConsultarColaboradorPorIdentificacion(numeroDeIdentificacion: Number): Observable<any> {
     //console.log(numeroDeIdentificacion);
-    return this.http.get('https://localhost:44309/api/ConsultarColaboradorPorIdentificacion'+  "/" + numeroDeIdentificacion);
+    return this.http.get('https://localhost:44309/api/ConsultarColaboradorPorIdentificacion'+  "/" + numeroDeIdentificacion.toString());
   }
 
   getCodigoInterno(): Observable<any> {

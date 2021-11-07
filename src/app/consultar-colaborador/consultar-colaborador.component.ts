@@ -28,7 +28,7 @@ export class ConsultarColaboradorComponent implements OnInit {
     codigoInterno: null
   };
 
-  items: Colaborador;
+  items: Colaborador[];
   myForm: FormGroup;    
   submitted = false;  
 
@@ -36,12 +36,19 @@ export class ConsultarColaboradorComponent implements OnInit {
 
   iniciarFormulario(){
     this.myForm = new FormGroup({        
-      numeroDeIndentificacion: new FormControl(this.colaborador.numeroDeIndentificacion, [Validators.required, Validators.minLength(4), Validators.maxLength(30)])      
+      numeroDeIndentificacion: new FormControl(this.colaborador.numeroDeIndentificacion, [Validators.required, Validators.minLength(1), Validators.maxLength(16)])      
     });
 }
 
   ngOnInit() {
-    this.iniciarFormulario();  
+    this.iniciarFormulario();     
+  }
+
+  consultarColaborador(numeroDeIndentificacion: Number): void {
+    this.dataService.ConsultarColaboradorPorIdentificacion(numeroDeIndentificacion).subscribe(
+        result =>  this.items = result,
+        error => console.log('error ', error)
+      ); 
   }
 
   onSubmit() {
@@ -53,11 +60,13 @@ export class ConsultarColaboradorComponent implements OnInit {
     }
     
     //console.log(this.myForm.value.numeroDeIndentificacion);
-    this.dataService.ConsultarColaboradorPorIdentificacion(this.myForm.value.numeroDeIndentificacion).subscribe(
-      //result => console.log('success ', result),
-      result =>  this.items = result,
-      error => console.log('error ', error)
-    );     
+    this.consultarColaborador(this.myForm.value.numeroDeIndentificacion);
+    // this.dataService.ConsultarColaboradorPorIdentificacion(this.myForm.value.numeroDeIndentificacion).subscribe(
+    // //this.dataService.ConsultarColaboradorPorIdentificacion(1).subscribe(
+    //   //result => console.log('success ', result),
+    //   result =>  this.items = result,
+    //   error => console.log('error ', error)
+    // );     
   }
 
 }
