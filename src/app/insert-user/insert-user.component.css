@@ -1,0 +1,13 @@
+form{
+    width: 40%;    
+}
+
+.abs-center {
+    display: flex;    
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  h2 {
+      text-align: center;
+  }
